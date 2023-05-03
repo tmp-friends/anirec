@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  anirec:
+    image: tmp-friends/anirec:latest
+    container_name: anirec
+    volumes:
+      - ../../app:/var/www
+      - node_modules:/var/www/node_modules
+    tty: true
+    ports:
+      - "13000:13000"
+    networks:
+      - anirec_network
+
+volumes:
+  node_modules:
+
+networks:
+  anirec_network:
+    external: true
